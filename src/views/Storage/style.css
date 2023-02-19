@@ -1,5 +1,10 @@
-.component-container {
-    margin-top: 0px;
+.card-container {
+    width: 350px
+}
+
+.storages-container {
+    padding: 24px;
+    min-height: 360;
 }
 
 /* 
@@ -8,7 +13,7 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-    .component-container {
-        margin-top: 60px;
+    .storages-container {
+        padding: 5px;
     }
 }

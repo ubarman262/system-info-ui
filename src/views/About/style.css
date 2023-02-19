@@ -1,0 +1,32 @@
+.about-content {
+    padding: 24px;
+    min-height: 360px,
+}
+
+.table {
+    margin-left: 3%;
+    text-align: left;
+}
+
+.tableHeader {
+    padding-right: 20px;
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .about-content {
+        padding: 0px;
+    }
+
+    .table {
+        margin-left: 0%;
+    }
+
+    .tableHeader {
+        padding-right: 10px;
+    }
+}

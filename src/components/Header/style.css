@@ -1,0 +1,20 @@
+.headerBar {
+    color: #ffffff;
+    display: none;
+    position: fixed;
+    width: 100%;
+    z-index: 1001;
+    padding: 0;
+    /* background: #ffffff !important; */
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .headerBar {
+        display: block;
+    }
+}

@@ -1,0 +1,38 @@
+.ant-layout-sider-children {
+    overflow: auto !important;
+    height: 100vh !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    z-index: 1000 !important;
+    width: inherit !important;
+}
+
+.ant-layout .ant-layout-sider-trigger {
+    z-index: 1000 !important;
+}
+
+.sider {
+    transition: opacity 1s ease-out;
+    opacity: 1;
+}
+
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .sider {
+        opacity: 0;
+        overflow: auto;
+        height: 100vh;
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 999;
+    }
+}

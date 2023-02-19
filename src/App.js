@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from 'antd';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import SiderComponent from './components/Sider/sider';
+import About from './views/About/About';
+import Dashboard from './views/Dashboard/Dashboard';
+import Network from './views/Network/network';
+import Storage from './views/Storage/Storage';
+import "./App.css";
+import HeaderComponent from './components/Header/header';
 
-function App() {
+const { Footer } = Layout;
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout
+      style={{
+        minHeight: '100vh',
+      }}
+    >
+      <HeaderComponent />
+      <SiderComponent />
+      <Layout className="site-layout"
+      >
+        <div className="component-container">
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/network" element={<Network />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/storage" element={<Storage />} />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </Routes>
+        </div>
+        <Footer
+          style={{
+            textAlign: 'center',
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+         System-Info ©2023 Created by Ujjwal Barman
+        </Footer>
+      </Layout>
+    </Layout>
   );
-}
-
+};
 export default App;
