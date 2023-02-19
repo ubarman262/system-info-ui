@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = 'https://system.ujjwalbarman.in';
+const BASE_URL = 'https://system-api.ujjwalbarman.in';
 
 const getDiskDetails = async () => {
     return axios.get(`${BASE_URL}/disk`)
