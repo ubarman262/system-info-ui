@@ -38,6 +38,7 @@ const SiderComponent = () => {
         navigate(item.label.toLowerCase());
         if (isMobile) {
           document.getElementsByClassName("sider")[0].style.opacity = "0";
+          document.getElementsByClassName("sider")[0].style["z-index"] = "-1";
         }
       }
     });
@@ -51,13 +52,12 @@ const SiderComponent = () => {
       onCollapse={(value) => setCollapsed(value)}
       className="sider"
     >
-      <div
-        style={{
-          height: 32,
-          margin: 16,
-          background: "rgba(255, 255, 255, 0.2)",
-        }}
-      />
+      <button
+        className="logo"
+        style={collapsed ? { padding: "15px 20px", marginLeft: "15px", transition: "all 5ms" } : {}}
+      >
+        {collapsed ? "S" : "SYSTEM"}
+      </button>
       <Menu theme="dark" defaultSelectedKeys={selected} mode="inline" items={items} onSelect={handleMenuChange} />
     </Sider>
   );

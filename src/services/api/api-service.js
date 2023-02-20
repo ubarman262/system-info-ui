@@ -32,8 +32,19 @@ const getOSDetails = async () => {
         });
 }
 
+const getBatteryDetails = async () => {
+    return axios.get(`${BASE_URL}/battery`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((err) => {
+            throw new Error();
+        });
+}
+
 export {
     getDiskDetails,
     getSystemDetails,
-    getOSDetails
+    getOSDetails,
+    getBatteryDetails
 }

@@ -52,8 +52,11 @@ const Storage = (props) => {
                     key={disk.name}
                     type="circle"
                     percent={disk.use}
-                    strokeWidth={2}
-                    strokeColor={disk.use <= 40 ? "#52c41a" : disk.use > 40 && disk.use <= 80 ? "#1677ff" : "#ff4d4f"}
+                    format={(percent) => `${Math.round(percent)}%`}
+                    // strokeLinecap="butt"
+                    strokeWidth={8}
+                    // strokeColor={disk.use <= 40 ? "#52c41a" : disk.use > 40 && disk.use <= 80 ? "#1677ff" : "#ff4d4f"}
+                    strokeColor={{ "0%": "#d3dee3", "100%": disk.use <= 40 ? "#52c41a" : disk.use > 40 && disk.use <= 80 ? "#1677ff" : "#ff4d4f" }}
                   />
                   <strong>
                     <p>{disk.label ? disk.label : "No Label"}</p>
@@ -97,7 +100,7 @@ const Storage = (props) => {
         </Breadcrumb>
         <div className="storages-container">
           {showLoader ? <Skeleton active /> : <></>}
-          <Space wrap>{getDisks()}</Space>
+          <Space wrap size={30}>{getDisks()}</Space>
         </div>
       </Content>
     </>

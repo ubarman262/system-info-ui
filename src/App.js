@@ -7,10 +7,20 @@ import Network from './views/Network/network';
 import Storage from './views/Storage/Storage';
 import "./App.css";
 import HeaderComponent from './components/Header/header';
+import Battery from './views/Battery/Battery';
 
 const { Footer } = Layout;
 
+const isMobile = window.innerWidth < 480 ? true : false;
+
 const App = () => {
+
+  const handleMenuCLose = () => {
+    if (isMobile) {
+      document.getElementsByClassName("sider")[0].style.opacity = "0";
+      document.getElementsByClassName("sider")[0].style["z-index"] = "-1";
+    }
+  }
 
   return (
     <Layout
@@ -20,14 +30,14 @@ const App = () => {
     >
       <HeaderComponent />
       <SiderComponent />
-      <Layout className="site-layout"
-      >
+      <Layout className="site-layout" onClick={handleMenuCLose}>
         <div className="component-container">
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/network" element={<Network />} />
             <Route path="/about" element={<About />} />
             <Route path="/storage" element={<Storage />} />
+            <Route path="/battery" element={<Battery />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
         </div>
@@ -36,7 +46,7 @@ const App = () => {
             textAlign: 'center',
           }}
         >
-         System-Info ©2023 Created by Ujjwal Barman
+          System-Info ©2023 Created by Ujjwal Barman
         </Footer>
       </Layout>
     </Layout>

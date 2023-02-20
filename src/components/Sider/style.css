@@ -18,6 +18,47 @@
     opacity: 1;
 }
 
+.logo {
+    opacity: 1;
+    padding: 20px 40px;
+    background: none;
+    border: none;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    color: #ffffff;
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+}
+
+.logo:after,
+.logo:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 2px solid #ffffff;
+    transition: transform 0.2s;
+}
+
+.logo:after {
+    transform: translate(3px, 3px);
+}
+
+.logo:before {
+    transform: translate(-3px, -3px);
+}
+
+.logo:hover:after,
+.logo:hover:before {
+    transform: translate(0);
+}
+
 
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
@@ -34,5 +75,10 @@
         top: 0;
         bottom: 0;
         z-index: 999;
+    }
+
+    .logo {
+        opacity: 0;
+        margin-top: 0px;
     }
 }

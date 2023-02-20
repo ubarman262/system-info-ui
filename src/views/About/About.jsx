@@ -9,15 +9,16 @@ const { Panel } = Collapse;
 const { Content } = Layout;
 
 const About = (props) => {
-  const [sytemDetails, setSystemDetails] = useState([]);
+  const [systemDetails, setSystemDetails] = useState([]);
   const [osDetails, setOSDetails] = useState([]);
   const [showLoader, setShowLoader] = useState(false);
+
   useEffect(() => {
     Promise.all([setSystemDetailsFromService(), setOSDetailsFromService()]);
   }, []);
 
   const setSystemDetailsFromService = async () => {
-    if (sytemDetails.length === 0) {
+    if (systemDetails.length === 0) {
       setShowLoader(true);
       await getSystemDetails()
         .then((response) => {
@@ -45,7 +46,7 @@ const About = (props) => {
   };
 
   const onChange = (key) => {
-    console.log(key);
+    //
   };
 
   return (
@@ -90,15 +91,15 @@ const About = (props) => {
                       <tbody>
                         <tr>
                           <th className="tableHeader">Manufacturer</th>
-                          <td>{sytemDetails.manufacturer}</td>
+                          <td>{systemDetails.manufacturer}</td>
                         </tr>
                         <tr>
                           <th>Model</th>
-                          <td>{sytemDetails.model}</td>
+                          <td>{systemDetails.model}</td>
                         </tr>
                         <tr>
                           <th>Serial</th>
-                          <td>{sytemDetails.serial}</td>
+                          <td>{systemDetails.serial}</td>
                         </tr>
                       </tbody>
                     </table>
