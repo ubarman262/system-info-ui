@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Layout, Menu } from "antd";
 import { FileOutlined, PieChartOutlined, InfoCircleOutlined, WifiOutlined, UsbOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -28,12 +29,16 @@ const isMobile = window.innerWidth < 480 ? true : false;
 const SiderComponent = () => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
+  const [selected, setSelected] = useState(["1"]);
 
   const handleMenuChange = (value) => {
     items.forEach((item) => {
       if (value.key === item.key) {
+        setSelected(`${item.key}`);
         navigate(item.label.toLowerCase());
-        document.getElementsByClassName("sider")[0].style.opacity = "0";
+        if (isMobile) {
+          document.getElementsByClassName("sider")[0].style.opacity = "0";
+        }
       }
     });
   };
@@ -53,7 +58,7 @@ const SiderComponent = () => {
           background: "rgba(255, 255, 255, 0.2)",
         }}
       />
-      <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline" items={items} onSelect={handleMenuChange} />
+      <Menu theme="dark" defaultSelectedKeys={selected} mode="inline" items={items} onSelect={handleMenuChange} />
     </Sider>
   );
 };
