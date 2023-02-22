@@ -72,10 +72,10 @@ const Battery = () => {
             <>
               <Card bordered={false}>
                 <Statistic
-                  value={batteryDetails.isCharging ? "Charging," : "Unplugged,"}
+                  value={batteryDetails.acConnected ? "Charging," : "Unplugged,"}
                   valueStyle={{ color: "#3f8600" }}
                   prefix={
-                    batteryDetails.isCharging ? (
+                    batteryDetails.acConnected ? (
                       <ThunderboltTwoTone twoToneColor="#52c41a" />
                     ) : (
                       <ApiTwoTone twoToneColor="#ff4d4f" />
