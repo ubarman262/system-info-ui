@@ -72,7 +72,7 @@ const Battery = () => {
             <>
               <Card bordered={false}>
                 <Statistic
-                  value={batteryDetails.acConnected ? "Charging," : "Unplugged,"}
+                  value={batteryDetails.acConnected ? (batteryDetails.percent === 100 ? "Charged," : "Charging,") : "Unplugged,"}
                   valueStyle={{ color: "#3f8600" }}
                   prefix={
                     batteryDetails.acConnected ? (
