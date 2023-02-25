@@ -1,8 +1,9 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Badge, Breadcrumb, Card, Col, Progress, Row, Skeleton, Space } from "antd";
+import { Badge, Card, Col, Progress, Row, Skeleton, Space } from "antd";
 import { useEffect, useState } from "react";
 import { formatBytes } from "../../common/utils";
+import BreadcrumbComponent from "../../components/Breadcrumb/breadcrumb";
 import { getDiskDetails } from "../../services/api/api-service";
 
 import "./style.css";
@@ -88,13 +89,7 @@ const Storage = (props) => {
 
   return (
     <>
-      <Breadcrumb
-        style={{
-          margin: "16px 0",
-        }}
-      >
-        <Breadcrumb.Item>Storage</Breadcrumb.Item>
-      </Breadcrumb>
+      <BreadcrumbComponent title="Battery" />
       <div className="storages-container">
         {showLoader ? <Skeleton active /> : <></>}
         <Space wrap size={30}>
