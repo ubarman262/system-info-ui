@@ -89,7 +89,7 @@ const Storage = (props) => {
 
   return (
     <>
-      <BreadcrumbComponent title="Battery" />
+      <BreadcrumbComponent title="Storage" />
       <div className="storages-container">
         {showLoader ? <Skeleton active /> : <></>}
         <Space wrap size={30}>
