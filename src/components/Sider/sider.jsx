@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Layout, Menu } from "antd";
-import { FileOutlined, PieChartOutlined, InfoCircleOutlined, WifiOutlined, UsbOutlined } from "@ant-design/icons";
+import { PieChartOutlined, InfoCircleOutlined, WifiOutlined, UsbOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
@@ -18,7 +18,7 @@ function getItem(label, key, icon, children) {
 
 const items = [
   getItem("Dashboard", "1", <PieChartOutlined />),
-  getItem("Files", "2", <FileOutlined />),
+  // getItem("Files", "2", <FileOutlined />),
   getItem("Network", "3", <WifiOutlined />),
   getItem("Storage", "4", <UsbOutlined />),
   getItem("About", "5", <InfoCircleOutlined />),

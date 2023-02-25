@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Breadcrumb, Card, Skeleton, Statistic } from "antd";
-import { Content } from "antd/es/layout/layout";
+import { Card, Skeleton, Statistic } from "antd";
 import { useEffect, useState } from "react";
 import { ThunderboltTwoTone, ApiTwoTone } from "@ant-design/icons";
 import { getBatteryDetails } from "../../services/api/api-service";
+import BreadcrumbComponent from "../../components/Breadcrumb/breadcrumb";
+
+import "./style.css";
 
 const Battery = () => {
   const [batteryDetails, setBatteryDetails] = useState([]);
@@ -53,41 +55,35 @@ const Battery = () => {
 
   return (
     <>
-      <Content
-        style={{
-          margin: "0 16px",
-        }}
-      >
-        <Breadcrumb
-          style={{
-            margin: "16px 0",
-          }}
-        >
-          <Breadcrumb.Item>Battery</Breadcrumb.Item>
-        </Breadcrumb>
-        <div className="about-content">
-          {showLoader ? (
-            <Skeleton active />
-          ) : (
-            <>
-              <Card bordered={false}>
-                <Statistic
-                  value={batteryDetails.acConnected ? (batteryDetails.percent === 100 ? "Charged," : "Charging,") : "Unplugged,"}
-                  valueStyle={{ color: "#3f8600" }}
-                  prefix={
-                    batteryDetails.acConnected ? (
-                      <ThunderboltTwoTone twoToneColor="#52c41a" />
-                    ) : (
-                      <ApiTwoTone twoToneColor="#ff4d4f" />
-                    )
-                  }
-                  suffix={` ${batteryDetails.percent}%`}
-                />
-              </Card>
-            </>
-          )}
-        </div>
-      </Content>
+      <BreadcrumbComponent title="Battery" />
+      <div className="page-content">
+        {showLoader ? (
+          <Skeleton active />
+        ) : (
+          <>
+            <Card bordered={false} className="battery-card">
+              <Statistic
+                value={
+                  batteryDetails.acConnected
+                    ? batteryDetails.percent === 100
+                      ? "Charged,"
+                      : "Charging,"
+                    : "Unplugged,"
+                }
+                valueStyle={{ color: "#3f8600" }}
+                prefix={
+                  batteryDetails.acConnected ? (
+                    <ThunderboltTwoTone twoToneColor="#52c41a" />
+                  ) : (
+                    <ApiTwoTone twoToneColor="#ff4d4f" />
+                  )
+                }
+                suffix={` ${batteryDetails.percent}%`}
+              />
+            </Card>
+          </>
+        )}
+      </div>
     </>
   );
 };

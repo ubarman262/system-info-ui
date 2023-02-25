@@ -3,13 +3,13 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import SiderComponent from './components/Sider/sider';
 import About from './views/About/About';
 import Dashboard from './views/Dashboard/Dashboard';
-import Network from './views/Network/network';
+import Network from './views/Network/Network';
 import Storage from './views/Storage/Storage';
 import "./App.css";
 import HeaderComponent from './components/Header/header';
 import Battery from './views/Battery/Battery';
 
-const { Footer } = Layout;
+const { Footer, Content } = Layout;
 
 const isMobile = window.innerWidth < 480 ? true : false;
 
@@ -32,21 +32,27 @@ const App = () => {
       <SiderComponent />
       <Layout className="site-layout" onClick={handleMenuCLose}>
         <div className="component-container">
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/network" element={<Network />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/storage" element={<Storage />} />
-            <Route path="/battery" element={<Battery />} />
-            <Route path="*" element={<Navigate to="/dashboard" />} />
-          </Routes>
+          <Content
+            style={{
+              margin: "0 16px",
+            }}
+          >
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/network" element={<Network />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/storage" element={<Storage />} />
+              <Route path="/battery" element={<Battery />} />
+              <Route path="*" element={<Navigate to="/dashboard" />} />
+            </Routes>
+          </Content>
         </div>
         <Footer
           style={{
             textAlign: 'center',
           }}
         >
-          System-Info ©2023 Created by Ujjwal Barman
+          Systems ©2023 Created by Ujjwal Barman
         </Footer>
       </Layout>
     </Layout>

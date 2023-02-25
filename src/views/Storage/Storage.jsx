@@ -1,12 +1,11 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Badge, Breadcrumb, Card, Col, Layout, Progress, Row, Skeleton, Space } from "antd";
+import { Badge, Breadcrumb, Card, Col, Progress, Row, Skeleton, Space } from "antd";
 import { useEffect, useState } from "react";
 import { formatBytes } from "../../common/utils";
 import { getDiskDetails } from "../../services/api/api-service";
-import "./style.css";
 
-const { Content } = Layout;
+import "./style.css";
 
 const Storage = (props) => {
   const [disksDetails, setDisksDetails] = useState([]);
@@ -56,7 +55,10 @@ const Storage = (props) => {
                     // strokeLinecap="butt"
                     strokeWidth={8}
                     // strokeColor={disk.use <= 40 ? "#52c41a" : disk.use > 40 && disk.use <= 80 ? "#1677ff" : "#ff4d4f"}
-                    strokeColor={{ "0%": "#d3dee3", "100%": disk.use <= 40 ? "#52c41a" : disk.use > 40 && disk.use <= 80 ? "#1677ff" : "#ff4d4f" }}
+                    strokeColor={{
+                      "0%": "#d3dee3",
+                      "100%": disk.use <= 40 ? "#52c41a" : disk.use > 40 && disk.use <= 80 ? "#1677ff" : "#ff4d4f",
+                    }}
                   />
                   <strong>
                     <p>{disk.label ? disk.label : "No Label"}</p>
@@ -86,23 +88,19 @@ const Storage = (props) => {
 
   return (
     <>
-      <Content
+      <Breadcrumb
         style={{
-          margin: "0 16px",
+          margin: "16px 0",
         }}
       >
-        <Breadcrumb
-          style={{
-            margin: "16px 0",
-          }}
-        >
-          <Breadcrumb.Item>Storage</Breadcrumb.Item>
-        </Breadcrumb>
-        <div className="storages-container">
-          {showLoader ? <Skeleton active /> : <></>}
-          <Space wrap size={30}>{getDisks()}</Space>
-        </div>
-      </Content>
+        <Breadcrumb.Item>Storage</Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="storages-container">
+        {showLoader ? <Skeleton active /> : <></>}
+        <Space wrap size={30}>
+          {getDisks()}
+        </Space>
+      </div>
     </>
   );
 };

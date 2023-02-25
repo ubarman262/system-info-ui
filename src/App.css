@@ -2,6 +2,11 @@
     margin-top: 0px;
 }
 
+.page-content {
+    padding: 24px;
+    min-height: 360px,
+}
+
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -11,4 +16,8 @@
     .component-container {
         margin-top: 60px;
     }
+    .page-content {
+        padding: 0px;
+    }
 }
+

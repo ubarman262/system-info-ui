@@ -12,6 +12,11 @@
     padding-right: 20px;
 }
 
+.logo-col {
+    text-align: end;
+    margin-top: 8px;
+}
+
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -28,5 +33,9 @@
 
     .tableHeader {
         padding-right: 10px;
+    }
+
+    .logo-col {
+        display: none;
     }
 }

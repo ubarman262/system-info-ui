@@ -32,6 +32,16 @@ const getOSDetails = async () => {
         });
 }
 
+const getCPUDetails = async () => {
+    return axios.get(`${BASE_URL}/cpu`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((err) => {
+            throw new Error();
+        });
+}
+
 const getBatteryDetails = async () => {
     return axios.get(`${BASE_URL}/battery`)
         .then((response) => {
@@ -46,5 +56,6 @@ export {
     getDiskDetails,
     getSystemDetails,
     getOSDetails,
-    getBatteryDetails
+    getBatteryDetails,
+    getCPUDetails
 }
