@@ -75,7 +75,10 @@ const About = (props) => {
       <BreadcrumbComponent title="About" />
       <div className="about-content">
         {showLoader ? (
-          <Skeleton active />
+          <>
+            <Skeleton active />
+            <Skeleton active />
+          </>
         ) : (
           <>
             <Space direction="vertical" style={{ width: "100%" }}>
